@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计时器</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function getNowTime(){
+			var d=new Date();
+			var y=d.getFullYear();
+			var m=d.getMonth()+1;
+			if(m<10){
+              m="0"+m;
+			}
+			var day=d.getDate();
+			if(day<10){
+				day="0"+day;
+			}
+			var h=d.getHours();
+			var min=d.getMinutes();
+			var secs=d.getSeconds();
+			document.getElementById("sptime").innerHTML=y+"-"+m+"-"+day+"  "+h+":"+min+":"+secs;
+		}
+		window.onload=function(){
+			getNowTime();
+			<!--每隔1秒调用一次-->
+			setInterval("getNowTime()",1000);
+		}
+	</script>
+</head>
+<body>
+<span id="sptime" style="color:#F00;font-size: 50px;">2018-08-01 10:55:23</span>
+</body>
+</html>
