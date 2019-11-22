@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>登陆</title>
+</head>
+<style type="text/css">
+body{
+	<!--background-image: url("images/1.jpg");-->
+}
+	#div1{
+		width: 300px;
+		height: 150px;
+		border:1px solid #aaa;
+		
+		text-align: center;
+		position: relative;
+		top:10px;
+		left: 500px;
+	}
+
+	#btn1,#btn2{
+		background-color: #ddd;
+		border-radius: 5px;
+		width:50px;
+		height: 30px;
+	}
+</style>
+
+<script type="text/javascript">
+	function check(){
+       var txtId=fm.username.value;//用户名
+       var password=fm.paw.value;//密码
+       if(txtId==""&&password==""){
+          document.getElementById("sp1").innerHTML="<font color='red'>error</font>";
+          document.getElementById("sp2").innerHTML="<font color='red'>error</font>";
+          return false;
+       }else if(txtId!=""&&password==""){
+       	if(txtId.length<2){
+       		document.getElementById("sp1").innerHTML="<font color='red'>error</font>";
+       		document.getElementById("sp2").innerHTML="<font color='red'>error</font>";
+       		return false;
+       	}else{
+       		document.getElementById("sp1").innerHTML="<font color='green'>OK</font>";
+       		document.getElementById("sp2").innerHTML="<font color='red'>error</font>";
+       		return false;
+       	}
+       }else if(txtId==""&&password!=""){
+            if(password.length<6){
+               document.getElementById("sp1").innerHTML="<font color='red'>error</font>";
+               document.getElementById("sp2").innerHTML="<font color='red'>error</font>";
+               return false;
+            }else{
+            	document.getElementById("sp1").innerHTML="<font color='red'>error</font>";
+            	document.getElementById("sp2").innerHTML="<font color='green'>OK</font>";
+            	return false;
+
+            }
+       	}else if(txtId!=""&&password!=""){
+       		if(txtId.length<2&&password.length<6){
+               document.getElementById("sp1").innerHTML="<font color='red'>error</font>";
+               document.getElementById("sp2").innerHTML="<font color='red'>error</font>";
+               return false;
+       		}else if(txtId.length<2&&password>=6){
+       		   document.getElementById("sp1").innerHTML="<font color='red'>error</font>";
+       		   document.getElementById("sp2").innerHTML="<font color='green'>OK</font>";
+       		   return false;
+       		}else if(txtId.length>=2&&password<6){
+       			document.getElementById("sp1").innerHTML="<font color='green'>OK</font>";
+       			document.getElementById("sp2").innerHTML="<font color='red'>error</font>";
+       			return false;
+       		}else{
+       			document.getElementById("sp1").innerHTML="<font color='green'>OK</font>";
+       			document.getElementById("sp2").innerHTML="<font color='green'>OK</font>";
+       			return true;
+       		}
+       		
+       	}
+	}
+   window.onload=function(){
+    	var sign=fm.btn1;
+	    sign.onclick= function(){
+		window.open("注册.html");
+	}
+    }
+	
+		
+	
+</script>
+<body>
+<div id="div1">
+	<form name="fm" onsubmit="return check();" method="get">
+		<table id="tab" cellpadding="10px">
+		<tr>
+			<td>
+				<label>用户名:</label>
+				<input type="text" name="username">
+				<span id="sp1" style="color:red">*</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>密码:</label>&nbsp;&nbsp;&nbsp;
+			    <input type="password" name="paw">
+			    <span id="sp2" style="color:red">*</span>
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<input type="button" name="btn1" value="注册" id="btn1">
+				<input type="submit" name="btn2" value="登陆" id="btn2">
+			</td>
+		</tr>
+	    </table>
+    </form>
+	
+</div>
+</body>
+</html>
