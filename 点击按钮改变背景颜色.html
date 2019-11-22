@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>颜色变换</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+		function color(){
+			var col=document.myform.sel.value;
+			switch(col){
+				case "1":
+				  document.bgColor="#F00";
+				  break;
+				case "2":
+				  document.bgColor="green";
+				  break;
+				case "3":
+				  document.bgColor="blue";
+				  break;
+				case "4":
+				  document.bgColor="pink";
+				  break;
+				/*default:
+				   document.write("请重新选择！");
+				   break;*/
+				  }
+		}
+	</script>
+</head>
+<body>
+	<center>
+	<form name="myform" method="get" action="">
+<select name="sel">
+	<option>--请选择背景色--</option>
+	<option value="1">红色</option>
+	<option value="2">绿色</option>
+	<option value="3">蓝色</option>
+	<option value="4">粉色</option>
+</select>
+<input type="button" name="btn" value="点我变色" onclick="color()">
+  </form>
+</center>
+</body>
+</html>
