@@ -1,0 +1,43 @@
+<title>Js斜边漂浮</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var x=10;//横向的速度  正数：向右走，为负数：向左走
+	    var y=5;//纵
+		function winMove(){
+           
+			//向的速度    
+			//每个一个时间间隔移动位置；碰边改变运动方向
+			var oldleft=parseFloat(document.getElementById("div1").style.left); //获取盒子的横坐标
+			var oldtop=parseFloat(document.getElementById("div1").style.top);//获取盒子的纵坐标
+          
+			// 获取窗口的宽和高
+			var maxWidth=window.innerWidth-parseFloat(document.getElementById("div1").style.width); //获取可以移动的最大宽度
+		var maxHeight=window.innerHeight-parseFloat(document.getElementById("div1").style.height);//获取可以移动的最大高度
+		   
+		   document.getElementById("div1").style.left=(oldleft+x)+"px";
+		   document.getElementById("div1").style.top=(oldtop+y)+"px";
+		   if(oldleft<0){
+		   	x=10;
+		   }else if(oldleft>=maxWidth){
+            x=-10;
+		   }
+
+		   if(oldtop<0){
+		   	y=15;
+		   }else if(oldtop>=maxHeight){
+		   	y=-15;
+		   }
+			
+			setTimeout("winMove()",100);
+		}
+		window.onload=function(){
+			winMove();
+		}
+	</script>
+</head>
+<body>
+<div id="div1" style="width: 150px;height: 100px;background-color: #EFA;position: absolute;left: 0;top: 0;text-align: center;line-height: 100px;">
+	移动盒子
+</div>
+</body>
+</html>
