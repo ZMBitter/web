@@ -1,0 +1,132 @@
+多级下拉菜单.html
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>多级下拉联动菜单-1</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="多级下拉菜单.js" ></script>
+</head>
+<body>
+	<form>
+省：<select id="selProvice">
+	<option>--请选择省--</option>
+</select>
+市：<select id="selCity">
+	<option>--请选择市---</option>
+</select>
+县（区）：<select id="selCounty">
+	<option>--请选择县（区）--</option>
+</select>
+</form>
+</body>
+</html>
+========================================
+
+多级下拉菜单.js
+
+var arr = [
+	[1, "陕西省", 0],
+	[2, "山西省", 0],
+	[3, "河南省", 0],
+	[4, "西安市", 1],
+	[5, "宝鸡市", 1],
+	[6, "渭南市", 1],
+	[7, "大同市", 2],
+	[8, "运城市", 2],
+	[9, "太原市", 2],
+	[10, "郑州市", 3],
+	[11, "洛阳市", 3],
+	[12, "开封市", 3],
+	[13, "临潼区", 4],
+	[14, "雁塔区", 4],
+	[15, "长安区", 4],
+	[16, "陈仓", 5],
+	[17, "岐山", 5],
+	[18, "陇县", 5],
+	[19, "渭南市-1", 6],
+	[20, "渭南市-2", 6],
+	[21, "大同市-1", 7],
+	[22, "大同市-2", 7],
+	[23, "大同市-3", 7],
+	[24, "运城市-1", 8],
+	[25, " 运城市-2", 8],
+	[26, "运城市-3", 8],
+	[27, "太原市-1", 9],
+	[28, "太原市-2", 9],
+	[29, "太原市-3", 9],
+	[30, "郑州市-1", 10],
+	[31, "郑州市-2", 10],
+	[32, "郑州市-3", 10],
+	[33, "洛阳市-1", 11],
+	[34, "洛阳市-2", 11],
+	[35, "洛阳市-3", 11],
+	[36, "开封市-1", 12],
+	[37, "开封市-2", 12],
+	[38, "开封市-3", 12]
+];
+
+window.onload = function() {
+	var provice = document.getElementById("selProvice"); //获取省份数据
+	var city = document.getElementById("selCity"); //获取城市信息
+	var county = document.getElementById("selCounty"); //获取县（区）的数据
+	getProvice();
+	provice.onchange = getCity;
+	city.onchange = getCounty;
+}
+
+//获取省份
+function getProvice() {
+	var provice = document.getElementById("selProvice"); //获取省份数据
+	// var str = "<option>--请选择省份--<option>";
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i][2] == 0) {
+			//方法1
+			var op = document.createElement("option");
+			op.innerText= arr[i][1];
+			op.value = arr[i][0];
+			provice.appendChild(op);
+            //方法2
+			// var op=new Option(arr[i][1],arr[i][0]);
+			// provice.appendChild(op);
+            // 方法3
+		   // str="<option value='+"arr[i][0]"'>"+"arr[i][1]"+"</option>";
+
+		}
+	}
+	// provice.innerHTML=str;
+}
+
+//获取城市
+function getCity() {
+	var provice = document.getElementById("selProvice"); //获取省份数据
+	var city = document.getElementById("selCity"); //获取城市信息
+	var county = document.getElementById("selCounty"); //获取县（区）的数据
+	//获取省份下拉框中的value(地区编号)
+	var pValue = provice.value;
+	//再添加新选项之前，清空城市和县（区）的下拉框
+	city.innerHTML = "<option>--请选择市--</option>";
+	county.innerHTML = "<option>--请选择县（区）--</option>";
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i][2] == pValue) {
+			var op = new Option(arr[i][1], arr[i][0]);
+			city.appendChild(op);
+		}
+	}
+}
+
+
+//获取县（区）
+function getCounty() {
+	var city = document.getElementById("selCity");
+	var county = document.getElementById("selCounty");
+	var cValue = city.value;
+	//再添加新选项之前清空，恢复默认
+    county.innerHTML = "<option>--请选择县（区）--</option>";
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i][2]== cValue) {
+			var op = new Option(arr[i][1], arr[i][0]);
+			county.appendChild(op);
+		}
+	}
+}
