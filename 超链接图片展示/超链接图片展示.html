@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style-type: none;
+			margin: 100px;
+		}
+		ul li{
+			float: left;
+		}
+
+		#bigImg{
+			width: 300px;
+			height: 200px;
+			border:1px solid #555;
+			display: none;
+			position: absolute;
+		}
+		#bigImg img{
+			width: 300px;
+			height: 170px;
+		}
+
+	</style>
+	<script type="text/javascript" src="jQ/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//显示图片
+			//显示文字
+			var mytitle;//定义一个全局变量，用来存放title的值
+			$("a.toolTip").mouseover(function(e) {
+			  //当鼠标悬停到图片上时，显示图片
+			  //获取要显示的图片的地址
+			  var imgSrc=$(this).attr("href");
+			  //获取要显示的文字
+			  mytitle=$(this).attr("title");
+			  //将title中的内容清空
+			  var emptyTitle=$(this).attr("title","");
+		      //创建一个div,用来放置要显示的大图,将要显示的文字也添加进去
+		      var bImg=$("<div id='bigImg'><img src='"+imgSrc+"'/>"+mytitle+"</div>");
+		      bImg.appendTo("body");
+		      //设置追加的新的div的位置就在鼠标放置的位置
+		      bImg.css({
+		      	left:e.pageX+10,
+		      	top:e.pageY+10
+		      }).show(500);
+		     
+			}).mouseout(function(e) {
+				//当鼠标离开的时候，不显示图片
+				bigImg.remove();
+				//当鼠标移出的时候，再设置title的文本
+				$(this).attr("title",mytitle);
+				
+			}).mousemove(function(e) {
+				//当鼠标在图片上移动时，显示的大图跟着鼠标的位置移动
+				 $("#bigImg").css({
+		      		left:e.pageX+10,
+		      		top:e.pageY+10
+		      	 }).show(100);
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div>
+<ul>
+	<li>
+		<a href="imgs/apple_1_bigger.jpg" class="toolTip" title="苹果 MAX">
+			<img src="imgs/apple_1.jpg" >
+		</a>
+	</li>
+	<li>
+		<a href="imgs/apple_2_bigger.jpg" class="toolTip" title="苹果 PXA">
+			<img src="imgs/apple_2.jpg" >
+		</a>
+	</li>
+	<li>
+		<a href="imgs/apple_3_bigger.jpg" class="toolTip" title="苹果 GTA">
+			<img src="imgs/apple_3.jpg" >
+		</a>
+	</li>
+	<li>
+		<a href="imgs/apple_4_bigger.jpg" class="toolTip" title="苹果 SWQ">
+			<img src="imgs/apple_4.jpg" >
+		</a>
+	</li>
+
+</ul>
+</div>
+</body>
+</html>
