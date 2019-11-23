@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>填充内容效果</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.div1{
+			width: 400px;
+			height: 200px;
+			border:10px solid #A7D30C;
+		}
+
+		/*在div元素的前面插入一个内容对象，在该对象中绘制一个球体*/
+		.div1:before{
+			content: -webkit-gradient(radial,200 100,10,200 100,100,from(#A7D30C),to(rgba(1,159,98,0)),color-stop(90%,#019F62));
+		}
+		ul{
+			list-style-image: -webkit-gradient(radial,center center,4,center center,8,from(#FF0000),to(rgba(0,0,0,0)),color-stop(50%,#dd0000));
+		}
+	</style>
+</head>
+<body>
+<div class="div1"></div>
+<ul>
+	<li>W3C</li>
+	<li>中国</li>
+	<li>美国</li>
+	<li>韩国</li>
+</ul>
+</body>
+</html>

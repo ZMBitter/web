@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>渐变背景1</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*webkit渐变——线性渐变*/
+	/* 	 #div1{
+				width: 1200px;
+				height: 300px;
+				border:2px solid #FCF;
+				padding: 4px;
+			background:-webkit-gradient(linear,left top,left bottom,from(blue),to(red),color-stop(50%,green));
+				设计二重渐变，从顶部到底部，先从蓝色变成白色，再由黑色渐变到红色
+				background:-webkit-gradient(linear,left top,left bottom,from(blue),to(red),color-stop(0.4,#FFF),color-stop(0.6,#000));
+				-webkit-background-origin:padding-box;
+				-webkit-background-clip:content-box;
+			}  */
+
+	/*webkit径向渐变*/
+	/* 
+	#div2{
+		width: 600px;
+		height: 600px;
+		border:2px solid black;
+		border-radius: 50%;
+		padding: 4px;
+		background:-webkit-gradient(radial,300 300,20,300 300,200,from(red),to(blue),color-stop(90%,green),color-stop(70%,yellow));
+		非同心圆时
+		background:-webkit-gradient(radial,300 150,20,300 300,200,from(red),to(blue),color-stop(90%,green),color-stop(70%,yellow));
+		background:-webkit-gradient(radial,200 300,20,300 300,200,from(red),to(blue),color-stop(90%,green),color-stop(70%,yellow));
+		background:-webkit-gradient(radial,200 150,20,100 250,200,from(red),to(blue),color-stop(90%,green),color-stop(70%,yellow));
+		-webkit-background-origin:padding-box;
+		-webkit-background-clip:content-box;
+	}  */
+	 #div3{
+	 	width: 400px;
+	 	height: 200px;
+	 	border:2px solid #FCF;
+	 	padding: 4px;
+	 	background:-webkit-gradient(radial,180 80,10,200 100,90,from(#00C),to(rgba(1,159,98,0)),color-stop(98%,#0FC));
+	 }
+	</style>
+</head>
+<body>
+<!-- <div id="div1"></div> -->
+<!-- <div id="div2"></div> -->
+<div id="div3"></div>
+</body>
+</html>

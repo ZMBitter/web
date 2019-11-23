@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>设计按钮</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background:#ededed;
+			margin:50px auto;
+			color:#999;
+		}
+		/*定义渐变按钮样式*/
+		.button{
+			display: inline-block;
+			zoom:1;
+			*display: inline;
+			margin:0 4px;
+			/*text-align: center;*/
+			text-decoration: none;
+			padding: .5em 2em .55em;
+			text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow:0 1px 2px rgba(0,0,0,0.2);
+			border-radius: 0.5em;
+			text-align: center;
+
+		}
+
+		.button:hover{
+			text-decoration: none;
+		}
+		.button:active{
+			position: relative;
+			top:1px;
+		}
+		.big{
+			/*定义大圆角样式*/
+			border-radius: 2em;
+			-webkit-border-radius:2em;
+			-moz-border-radius:2em;
+		}
+		/*定义中按钮样式*/
+		.medium{
+			font-size:14px;
+			padding: 0.6em 1em;
+		}
+		/*定义小号按钮*/
+		.small{
+			font-size: 11px;
+			padding: 0.6em 1em 0.5em;
+		}
+
+		/*设计按钮的颜色样式，黑色风格的按钮*/
+		.black{
+			color: #D7D7D7;
+			background-color: #333;
+			border:1px solid #333;
+			background:-webkit-gradient(linear,left top,left bottom,from(#666),to(#000));
+			background:-moz-gradient(top,#666,#000);
+		}
+		/*鼠标悬停样式类*/
+		.black:hover{
+			background:#000;
+			background:-webkit-gradient(linear,left top,left bottom,from(#214FBA),to(#44B3B0));
+		}
+
+		/*按钮激活样式*/
+		.black:active{
+			color:#666;
+			background:-webkit-gradient(linear,left top,left bottom,from(#F12C2C),to(#E3DF69));
+		}
+	</style>
+</head>
+<body>
+<div>
+	<a href="#" class="button black">圆角按钮</a>
+	<a href="#" class="button black big">大号椭圆按钮</a>
+	<a href="#" class="button black medium">中号按钮按钮</a>
+	<a href="#" class="button black small">小号按钮</a>
+</div>
+</body>
+</html>
