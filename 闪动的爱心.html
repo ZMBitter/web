@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>心心</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#d1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 200px;
+			top: 300px;
+			transform:rotate(45deg);
+			/*动画名 演示时间 播放方式：循环播放 匀速播放*/
+			animation:x 1s infinite linear;
+		}
+		#d1:before{
+			content: "";
+			position: absolute;
+			right:50px;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: red;
+		}
+		#d1:after{
+			content: "";
+			position: absolute;
+			bottom: 50px;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: red;
+		}
+	@keyframes x{
+		0%{
+			transform: scale(1) rotate(45deg);
+		}
+		20%{
+			transform: scale(1.2) rotate(75deg);
+		}
+		50%{
+			transform: scale(1) rotate(45deg);
+		}
+		80%{
+			transform: scale(1.2) rotate(15deg);
+		}
+		100%{
+			transform: scale(1) rotate(45deg);
+		}
+	}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		<!-- <span id="s1">lalala</span> -->
+	</div>
+</body>
+</html>
