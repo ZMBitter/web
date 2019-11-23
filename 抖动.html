@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var a=['top','left'];
+		var b=0;
+		var c;
+		function fudu(){
+         document.getElementById("win").style[a[b%2]]=(b++)%4<2?"0px":"6px";
+         if(b>30){
+         	clearInterval(c);
+				b=0;
+         }
+		}
+		function doudong(){
+			clearInterval(c);
+			c=setInterval("fudu()",30);
+		}
+		window.onload=function(){
+			var bt=document.getElementById("bt");
+			var win=document.getElementById("win");
+		}
+	</script>
+	<style type="text/css">
+		#win{
+			
+			
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="bt" value="别点我" onclick="doudong()">
+<div id="win" style="width: 100px;height: 100px;background-color: #fcd;position: relative;">hhhhh，打不过我吧</div>
+</body>
+</html>
