@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>横向菜单</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="JQ/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//找到一级菜单的a
+			var firstA=$(".firstLi>a");
+			//找到二级菜单的ul
+			var secUl=$(".secondUl");
+			//点击一级菜单的a,显示二级菜单ul
+		   firstA.click(function(){
+		   	if(secUl.css("display")=="none"){
+		   		$(this).css("display","block");
+		   	}else{
+		   		$(this).css("display","none");
+		   	}
+		   });
+		});
+	</script>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#nav{
+		height: 100px;
+		background-color: #DFF;
+		border: 1px solid #137;
+		}
+		#nav a{
+			text-decoration: none;
+			font-weight: 700;
+		}
+		.firstLi{
+			display: inline-block;
+			background-image: url(images/3.gif);
+			background-repeat: repeat-x;
+			float: left;
+			position: relative;
+		}
+
+		.firstLi>a{
+			color: #FFF;
+			padding-right: 40px;
+		}
+		#nav ul{
+			list-style-type: none;
+		}
+
+		.secondUl{
+			margin-top: 20px;
+			display: none;
+			background-color: #DDD;
+			text-align: center;
+		}
+		.secondUl a{
+			color: black;
+		}
+
+	</style>
+</head>
+<body>
+<div id="nav">
+	<ul id="myFirstUl">
+	<li class="firstLi">
+		<a href="#">一级菜单1</a>
+			<ul class="secondUl">
+				<li><a href="#">二级菜单1.1</a></li>
+				<li><a href="#">二级菜单1.2</a></li>
+				<li><a href="#">二级菜单1.3</a></li>
+			</ul>
+		</li>
+		<li class="firstLi">
+			<a href="#">一级菜单2</a>
+				<ul class="secondUl">
+					<li><a href="#">二级菜单2.1</a></li>
+				    <li><a href="#">二级菜单2.2</a></li>
+				    <li><a href="#">二级菜单2.3</a></li>
+				</ul>
+		</li>
+		<li class="firstLi">
+			<a href="#">一级菜单3</a>
+				<ul class="secondUl">
+					<li><a href="#">二级菜单3.1</a></li>
+				    <li><a href="#">二级菜单3.2</a></li>
+				    <li><a href="#">二级菜单3.3</a></li>
+				</ul>
+		</li>
+		<li class="firstLi">
+			<a href="#">一级菜单4</a>
+		</li>
+		<li class="firstLi">
+				<a href="#">一级菜单5</a>
+				<ul class="secondUl">
+					<li><a href="#">二级菜单5.1</a></li>
+				    <li><a href="#">二级菜单5.2</a></li>
+				    <li><a href="#">二级菜单5.3</a></li>
+				</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
