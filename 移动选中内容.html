@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>练习</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	   #div1{
+	   	width: 250px;
+	   	height: 630px;
+	   	border:solid 0.8px #000; 
+        background-color:#AA6;
+        float: left;
+        margin-left:300px;
+        padding-left: 50px;
+	   }
+	   #div2{
+	   	width: 100px;
+	   	height: 630px;
+	   	 float: left;
+	   	 text-align: center;
+	   	 position: relative;
+	   	 padding-top: 250px;
+	   }
+	   #div3{
+	   	width: 250px;
+	   	height: 630px;
+	   	background-color: #FFA;
+	   	border:solid 0.8px #000; 
+	   	 float: left;
+	</style>
+	<script type="text/javascript">
+
+		//1.获取被选中的选项的值
+		//2.将选中的复选框和值移动到div3,如果没有选中任何一项，提示：至少选择一项
+		function fun1(){
+			var count=0;
+          for(var i=0;fm.chk.length;i++){
+             if(fm.chk[i].checked){
+              //找到span
+              var sp=fm.chk[i].parentNode;
+              //找到div3
+              var mydiv3=document.getElementById("div3");
+              //将sp添加到div3的节点上 
+              mydiv3.appendChild(sp);
+
+                          
+              if(fm.chk.length==undefined){
+              	var sp=fm.chk.parentNode;
+                mydiv3.appendChild(sp);
+                break;
+              } 
+              i--;
+              count+=1; 
+             }
+
+             if(count==0){
+             	document.getElementById("spp").innerHTML="<font color='red'>请至少选择一项！</font>"
+               }else{
+               	document.getElementById("spp").innerHTML="";
+               }
+          }
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="div1">
+	<form name="fm">
+		<br/>
+		<span><input type="checkbox" name="chk" value="音乐">音乐<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="舞蹈">舞蹈<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="表演">表演<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="戏曲">戏曲<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="民歌">民歌<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="剪纸">剪纸<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="书法">书法<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="脸谱">脸谱<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="绘画">绘画<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="运动">运动<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="跑步">跑步<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="瑜伽">瑜伽<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="体操">体操<br/><br/></span>
+		<span><input type="checkbox" name="chk" value="游泳">游泳<br/><br/></span>
+	</form>
+	</div>
+<div id="div2">
+	<form>	       
+    	<input type="button" name="btn1" value="《" onclick="fun2()"><br/><br/>
+    	<input type="button" name="btn2" value="》" onclick="fun1()"><br/>
+    	<span id="spp"></span>
+	</form>
+   </div>
+	<div id="div3">
+	  
+	</div>
+</body>
+</html>
