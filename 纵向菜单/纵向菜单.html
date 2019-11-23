@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="JQ/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//给一级里面的a链接添加点击事件
+			var firstLiA=$(".firstLi>a");//一级菜单的li的a
+			firstLiA.click(function(){
+			var secUl=$(this).next();//找到一级菜单下对应的二级菜单的ul
+			//判断当前一级菜单下对应的二级菜单的ul的显示和隐藏状态
+			if(secUl.css("display")=="none"){
+				secUl.css("display","block");
+				var othersecUl=$(this).parent().siblings().children("ul");//找一级菜单没有被点击的li的a
+				othersecUl.css("display","none");//将其隐藏
+			}else{
+				secUl.css("display","none");
+			}
+			});
+		});
+	</script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#nav{
+			width: 150px;
+			background-color: #FF7;
+		}
+		#nav ul{
+			list-style-type: none;
+		}
+		#nav a{
+			text-decoration: none;
+			font-weight: 600;
+		}
+		.firstLi{
+			background-image: url(images/3.gif);
+			background-repeat: repeat-x;
+		}
+		.firstLi>a{
+			color: #FFF;
+		}
+		.secondUl li>a{
+			color: #000;
+		}
+		.secondUl{
+			display: none;
+			margin: 20px 0px 20px 10px;
+
+		}
+	</style>
+</head>
+<body>
+<div id="nav">
+	<ul id="myFirstUl">
+	<li class="firstLi">
+		<img src="images/1.gif" alt="">
+		<a href="#">一级菜单1</a>
+			<ul class="secondUl">
+				<li><a href="#">二级菜单1.1</a></li>
+				<li><a href="#">二级菜单1.2</a></li>
+				<li><a href="#">二级菜单1.3</a></li>
+			</ul>
+		</li>
+		<li class="firstLi">
+			<img src="images/1.gif" alt="">
+			<a href="#">一级菜单2</a>
+				<ul class="secondUl">
+					<li><a href="#">二级菜单2.1</a></li>
+				    <li><a href="#">二级菜单2.2</a></li>
+				    <li><a href="#">二级菜单2.3</a></li>
+				</ul>
+		</li>
+		<li class="firstLi">
+			<img src="images/1.gif" alt="">
+			<a href="#">一级菜单3</a>
+				<ul class="secondUl">
+					<li><a href="#">二级菜单3.1</a></li>
+				    <li><a href="#">二级菜单3.2</a></li>
+				    <li><a href="#">二级菜单3.3</a></li>
+				</ul>
+		</li>
+		<li class="firstLi">
+			<img src="images/1.gif" alt="">
+			<a href="#">一级菜单4</a>
+		</li>
+		<li class="firstLi">
+			<img src="images/1.gif" alt="">
+			<a href="#">一级菜单5</a>
+				<ul class="secondUl">
+					<li><a href="#">二级菜单5.1</a></li>
+				    <li><a href="#">二级菜单5.2</a></li>
+				    <li><a href="#">二级菜单5.3</a></li>
+				</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
