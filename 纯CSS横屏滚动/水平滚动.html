@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>水平滚动</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#ul1{
+			padding: 0;
+			margin: 0;
+			float: left;
+		}
+		#ul2{
+			padding: 0;
+			margin: 0;
+			float: left;
+		}
+		ul>li{
+			list-style-type: none;
+			display: inline-block;
+			margin-left: -5px;
+		}
+		.img1{
+			width: 260px;
+			height: 320px;
+			animation: x 2s linear infinite;
+		}
+		.img2{
+			width: 260px;
+			height: 320px;
+			animation: y 2s linear infinite;
+		}
+		
+		#d1{
+			width: 780px;
+			height: 320px;
+			overflow: hidden;
+			position: absolute;
+		}
+		#d2{
+			width: 780px;
+			height: 320px;
+			overflow: hidden;
+		}
+		@keyframes y{
+			0%{
+				transform: translateX(-780px);
+			}
+			100%{
+				transform: translateX(0px);
+			}
+
+		}
+		@keyframes x{
+			0%{
+				transform: translateX(0);
+			}
+			100%{
+				transform: translateX(780px);
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		<ul id="ul1">
+			<li><img src="images/work-image1.jpg" class="img1"></li>
+			<li><img src="images/work-image2.jpg" class="img1"></li>
+			<li><img src="images/work-image3.jpg" class="img1"></li>
+		</ul>
+	</div>
+	<div id="d2">
+			<ul id="ul2">
+			<li><img src="images/work-image1.jpg" class="img2"></li>
+			<li><img src="images/work-image2.jpg" class="img2"></li>
+			<li><img src="images/work-image3.jpg" class="img2"></li>
+			</ul>
+		</div>
+</body>
+</html>
