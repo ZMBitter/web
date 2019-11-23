@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用户注册</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*只有块元素才能缩进*/
+        .sp{
+        	display: inline-block;
+        	 text-indent: 2em;
+        }
+
+	</style>
+	<script type="text/javascript">
+		function checkId(){
+         //账号：必须是纯数字，长度6-8
+         var userId=fm.txtId.value;
+         if(userId==""||(userId!=""&&isNaN(userId))||((userId!=""&&!isNaN(userId))&&(userId.length<6||userId.length>8))){
+            //alert("账号格式不正确！");
+            document.getElementById("sp1").innerHTML="<font>账号格式不正确</font>";
+            fm.txtId.focus();
+            return false;
+          }else{
+          	 document.getElementById("sp1").innerHTML="";
+          	 return true;
+          }
+		}
+        
+        function checkName(){
+        	var userNickname=fm.nickname.value;
+        	if(userNickname==""){
+        		fm.nickname.focus();
+        		 document.getElementById("sp2").innerHTML="<font>昵称格式不正确</font>";
+        		 return false;
+        	}else{
+        		document.getElementById("sp2").innerHTML="";
+                return true;
+        	}
+        }                    
+
+//正则表达式 字母6-8    var reg=/^[a-zA-Z][a-zA-Z]{5,7}$/;
+//不全是:  ?![0,9]+$  不全是0-9的数字         ?![a-zA-Z]+$ 不全是字母
+
+
+        function checkPwd(){
+        	//密码：包含数字字母的6---16位数字
+        	var pwd=fm.txtPwd.value;
+        	 var reg=/^(?![0,9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+
+        	 if(!(reg.test(pwd))){
+        	 	document.getElementById("sp3").innerHTML="<font>密码格式不正确</font>";
+        	 	return false;
+
+        	 }else{
+               document.getElementById("sp3").innerHTML="";
+               return true;
+        	 }
+        }
+       
+        function checkPwd2(){
+            var pwd=fm.txtPwd.value;
+            var pwd2=fm.txt2Pwd.value;
+            if(pwd2!=pwd){
+            	document.getElementById("sp4").innerHTML="<font>密码前后不一致，请重新输入</font>";
+        	 	return false;
+            }else{
+            	document.getElementById("sp4").innerHTML="";
+            	return true;
+            }
+        }
+
+        function checkAge(){
+        	//必须是1-100之间的数字
+        	var age=fm.txtAge.value;
+        	var reg=/^[1-9]\d{0,1}$|100/;
+            if(!(reg.test(age))){
+            document.getElementById("sp5").innerHTML="<font>年龄格式不正确</font>";
+            return false;
+            }else{
+             document.getElementById("sp5").innerHTML="";
+             return true;
+            }
+        }
+
+        function checkMail(){
+        	var mail=fm.txtMail.value;
+        	var reg=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        	if(!(reg.test(mail))){
+        		document.getElementById("sp6").innerHTML="<font>邮箱格式不正确！</font>";
+        		return false;
+        	}else{
+        		document.getElementById("sp6").innerHTML="";
+        		return true;
+        	}
+        }
+
+        function checkHobby(){
+        	var chks=fm.chk;
+        	var n=0;
+        	for(var i=0;i<chks.length;i++){
+        		if(chks[i].checked){
+        			n++;
+        		}
+        	}
+        	if(n==0){
+        		alert("至少选中一项");
+        		return false;
+        	}else{
+        		return true;
+        	}
+        }
+
+
+        function checks(){
+        	if( checkId()&&checkName()&&checkPwd()&&checkPwd2()&&checkAge()&&checkMail()&&checkHobby()){
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
+       
+	</script>
+</head>
+<body>
+	<!-- 
+
+	账号：必须是纯数字
+	昵称：非空
+	密码：包含数字字母的6---16位数字
+	确认密码：和密码一样
+	年龄：纯数字1到100之间
+	邮箱：必须包含@
+-->
+<form name="fm" method="get" action="05.html" onsubmit="return checks()" >
+	<table>
+		<tr>
+			<td>
+		
+				<span class="sp">账号:</span>	
+			<input type="text" name="txtId" onblur="checkId()">
+			<span id="sp1"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span class="sp">昵称:</span>
+				<input type="text" name="nickname" onblur="checkName()">
+				<span id="sp2"></span>
+		   </td>
+		</tr>
+		<tr>
+			<td>
+				<span class="sp"> 密码:</span>
+				<input type="password" name="txtPwd" onblur="checkPwd()">
+				<span id="sp3"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			  	<span>确认密码:</span>
+			  	<input type="password" name="txt2Pwd" onblur="checkPwd2()">
+			  	<span id="sp4"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			  	<span class="sp">年龄:</span>
+			  	<input type="text" name="txtAge" onblur="checkAge()">
+			  	<span id="sp5"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span class="sp">邮箱:</span>
+				<input type="text" name="txtMail" onblur="checkMail()">
+				<span id="sp6"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>爱好：</span>
+				<input type="checkbox" name="chk">绘画
+				<input type="checkbox" name="chk">书法
+				<input type="checkbox" name="chk">弹琴
+				<span id="sp7" style="color:red;">【爱好至少选择中一项】</span>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" name="" value="注册">
+				<input type="reset" name="" value="重置">
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
