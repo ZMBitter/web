@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		// alert(window.innerWidth); 获取窗口的宽和高
+		// alert(window.innerHeight);
+		// var a1=window.history;
+		//alert(window.status);
+
+		//alert(window.screen);
+		// alert(window.screenX);
+		// alert(window.screenY);
+		// alert(window.scroll);
+		// alert(window.scrollX);
+		// alert(window.scrollY);
+   window.onload=function(){
+   	fm.btnOpen.onclick=function(){
+   		window.open("02.html","","width=600px,height=500px");
+   	}
+   	fm.btnClose.onclick=function(){
+   		window.close();
+   	}
+   }
+	</script>
+</head>
+<body>
+	<form name="fm">
+<input type="button" name="btnOpen" value="打开新窗口">
+<input type="button" name="btnClose" value="关闭当前窗口">
+</form>
+</body>
+</html>
