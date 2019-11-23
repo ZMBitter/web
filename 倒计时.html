@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>倒计时</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var time=60;
+		if(window.name==""){
+			window.name=60;
+		}else{
+			
+		}
+		function daojishi(){
+          document.getElementById("sptime").innerText=time;
+          time--;
+          if(time<0){
+          	document.getElementById("sptime").innerText="倒计时结束！";
+          	clearTimeout(timer);
+          	return;
+          }
+          window.name=time;
+          setTimeout("daojishi()",1000);
+
+		}
+		window.onload=function(){
+			daojishi();
+		}
+	</script>
+</head>
+<body>
+<span id="sptime" style="color: #DFE;font-size: 50px;"></span>
+</body>
+</html>
