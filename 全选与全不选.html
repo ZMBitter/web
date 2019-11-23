@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+	<!--全选-->
+      function aa(sel){
+        var selcheck=fm.chk;
+        if(sel){
+        for(var i=0;i<selcheck.length;i++){
+           selcheck[i].checked=true;
+         }
+       }else{
+       	for(var i=0;i<selcheck.length;i++){
+       		selcheck[i].checked=false;
+       	}
+       }
+     }
+
+     function showResult(sel){
+     	var ss=""; //定义一个空的数组用来存放所选择的项
+     	 var selcheck=fm.chk; //获取选项的值
+     	 for(var i=0;i<selcheck.length;i++){
+     	 	if(selcheck[i].checked){
+             ss+=selcheck[i].value+"\n";
+             }
+     	 	}
+     	 	if(ss!=""){
+     	 		confirm("您确定选择如下选项吗？");
+                alert("您的爱好如下：\n"+ss);
+     	 	}else{
+     	 		alert("请至少选择一项！");
+     	 	}
+     	 	
+     	 }
+
+
+//实现反转
+function bb(sels){
+	var reversesel=fm.chk;
+	if(sels){
+	for(var i=0;i<reversesel.length;i++){
+       reversesel[i].checked=!reversesel[i].checked;
+	}
+  }
+ }
+
+	</script>
+</head>
+<body>
+<form name="fm">
+  <input type="checkbox" name="chkAll" onchange="aa(this.checked)">全选/全不选
+  <input type="checkbox" name="chkReverse" onchange="bb(this.checked)">反选
+  请选择您的爱好：
+  <input type="checkbox" name="chk" value="弹琴">弹琴
+  <input type="checkbox" name="chk" value="看书">看书
+  <input type="checkbox" name="chk" value="绘画">绘画
+  <input type="checkbox" name="chk" value="运动">运动
+  <input type="button" name="btn" value="确认选择" onclick="showResult(this.checked)">
+</form>
+</body>
+</html>
