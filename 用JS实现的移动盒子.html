@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Js绕边漂浮</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function winMove(){
+			//每隔一个时间间隔移动位置；碰边改变运动方向
+			var oldleft=parseFloat(document.getElementById("div1").style.left); //获取盒子的横坐标
+			var oldtop=parseFloat(document.getElementById("div1").style.top);//获取盒子的纵坐标
+          
+			// 获取窗口的宽和高
+			var maxWidth=window.innerWidth-parseFloat(document.getElementById("div1").style.width); //获取可以移动的最大宽度
+		var maxHeight=window.innerHeight-parseFloat(document.getElementById("div1").style.height);//获取可以移动的最大高度
+		   
+		 
+			if(oldleft<maxWidth&&oldtop<=0){ // 顶部移动
+				document.getElementById("div1").style.left= (oldleft+20)+"px";
+			  }else if(oldtop<maxHeight&&oldleft>=maxWidth){  //在右侧边移动
+                document.getElementById("div1").style.top= (oldtop+20)+"px";
+			
+              }else if(oldleft>0){//在底部移动
+              document.getElementById("div1").style.left= (oldleft-20)+"px";
+			
+
+			 }else{//在左侧边移动
+            document.getElementById("div1").style.top= (oldtop-20)+"px";
+			
+
+			 }
+			setTimeout("winMove()",50);
+		}
+		window.onload=function(){
+			winMove();
+		}
+	</script>
+</head>
+<body>
+<div id="div1" style="width: 150px;height: 100px;background-color: #EFA;position: absolute;left: 0;top: 0;text-align: center;line-height: 100px;">
+	移动盒子
+</div>
+</body>
+</html>
