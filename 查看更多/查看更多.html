@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jq案例</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jQ/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//隐藏第8列以后的部分
+			var hideLi=$("#myul>li:gt(7):not(:last)");
+			hideLi.css("display","none");
+			//点击isMore,如果display的值为none，点击查看更多，显示隐藏的部分；若display的值不为none，则隐藏
+			$("#isMore").click(function(){
+				if(hideLi.css("display")=="none"){
+					hideLi.css("display","block");
+					$(this).text("收起《");
+					$("#tipImg").attr("src","img/down.gif");
+					//给某一些设置高亮 filter函数
+					$("li>a").filter(":contains('佳能'),:contains('奥林巴斯'),:contains('富士')").css("color","red");
+				}else{
+					hideLi.css("display","none");
+					$(this).text("查看更多》");
+					$("#tipImg").attr("src","img/up.gif");
+					$("li>a").filter(":contains('佳能'),:contains('奥林巴斯'),:contains('富士')").css("color","black");
+
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+	*{
+		margin: 0 auto;
+		padding: 0px;
+	}
+		#div1{
+			width: 600px;
+			height: 50px;
+			background-color: #F82;
+			border: 1px solid black;
+		}
+		h1{
+			float: left;
+		}
+		#tipImg{
+			width: 50px;
+			height: 50px;
+			float: right;
+		}
+
+		#div2{
+			width: 600px;
+			height: 400px;
+			background-color: #AAF;
+		}
+		#myul{
+			list-style-type: none;
+		}
+		#myul li{
+			width: 260px;
+			float: left;
+			margin-left: 40px;
+			margin-top: 20px;
+		}
+		#myul li a{
+			text-decoration: none;
+			color: black;
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="div1">
+		<h1>产品分类</h1>
+		<img src="img/up.gif" alt="提示图标" id="tipImg">
+	</div>
+	<div id="div2">
+		<ul id="myul">
+			<li ><a href="#">佳能</a><i>(30440) </i></li>
+			<li ><a href="#">索尼</a><i>(27220) </i></li>
+			<li ><a href="#">三星</a><i>(20808) </i></li>
+			<li ><a href="#">尼康</a><i>(17821) </i></li>
+			<li ><a href="#">松下</a><i>(12289) </i></li>
+			<li ><a href="#">卡西欧</a><i>(8242) </i></li>
+			<li ><a href="#">富士</a><i>(14894) </i></li>
+			<li ><a href="#">柯达</a><i>(9520) </i></li>
+			<li ><a href="#">宾得</a><i>(2195) </i></li>
+			<li ><a href="#">理光</a><i>(4114) </i></li>
+			<li ><a href="#">奥林巴斯</a><i>(12205) </i></li>
+			<li ><a href="#">明基</a><i>(1466) </i></li>
+			<li ><a href="#">爱国者</a><i>(3091) </i></li>
+			<li ><a href="#">其他品牌相机</a><i>(7275) </i></li>
+  </ul>
+<a href="#" style="font-size: 20px;margin-left: 400px;font-weight: 700;" id="isMore">查看更多》</a>
+	</div>
+
+</body>
+</html>
